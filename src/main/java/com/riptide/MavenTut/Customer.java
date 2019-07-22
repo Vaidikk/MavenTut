@@ -5,38 +5,50 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
+//Defines the name of the table created for the entity
 @Table(name = "customer")
-public class Customer implements Serializable{
+public class Customer implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	// All entities must define a primary key which you define with
+	// the @Id annotation
 	@Id
+	
+	// You can override the default column name 
+	// Map id to the CustID field in the DB
+	// You can have it auto generate
+	// @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "custId", unique = true)
 	private int id;
 	
 	@Column(name = "firstName", nullable = false)
 	private String fName;
-	@Column(name = "custId", nullable = false)
+
+	@Column(name = "lastName", nullable = false)
 	private String lName;
 	
-	public int getId() {
+	public int getID() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setID(int id) {
 		this.id = id;
 	}
-	public String getfName() {
+ 
+	public String getFName() {
 		return fName;
 	}
-	public void setfName(String fName) {
+
+	public void setFName(String fName) {
 		this.fName = fName;
 	}
-	public String getlName() {
+ 
+	public String getLName() {
 		return lName;
 	}
-	public void setlName(String lName) {
+
+	public void setLName(String lName) {
 		this.lName = lName;
 	}
 	
-	
-
 }
